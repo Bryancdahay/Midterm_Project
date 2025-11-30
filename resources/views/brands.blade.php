@@ -117,7 +117,7 @@
 
 @push('scripts')
 <script>
-    // Edit Brand
+    // mag edit brand
     document.querySelectorAll('.edit-brand-btn').forEach(button => {
         button.addEventListener('click', () => {
             const id = button.dataset.id;
@@ -133,14 +133,14 @@
         });
     });
 
-    // Cancel edit brand
+    // mag cancel brand edit
     document.getElementById('edit-brand-cancel').addEventListener('click', () => {
         const modal = document.getElementById('edit-brand-modal');
         modal.classList.add('hidden');
         modal.classList.remove('flex');
     });
 
-    // Delete brand confirmation
+    // confirmation mag delete brand
     document.querySelectorAll('.delete-brand-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             if (confirm('Are you sure you want to delete this brand?')) {
@@ -149,7 +149,7 @@
         });
     });
 
-    // Click outside closes edit brand modal
+    // mag pindot sa gwa ga exit ang edit
     document.getElementById('edit-brand-modal').addEventListener('click', (e) => {
         if (e.target.id === 'edit-brand-modal') {
             e.currentTarget.classList.add('hidden');
