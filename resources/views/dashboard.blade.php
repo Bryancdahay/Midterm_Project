@@ -16,13 +16,12 @@
             if(msg) {
                 msg.style.transition = "opacity 0.5s ease";
                 msg.style.opacity = 0;
-                setTimeout(() => msg.remove(), 500); // remove after fade out
+                setTimeout(() => msg.remove(), 500);
             }
-        }, 2000); // 2 seconds
+        }, 2000);
     </script>
 @endif
 
-    {{-- Top: stats --}}
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
         <div class="bg-black p-4 rounded shadow border border-red-500">
             <div class="text-sm text-red-500">Total Vehicles</div>
@@ -42,7 +41,7 @@
 
     <div class="flex gap-6">
         {{-- Add vehicle --}}
-        <div class="text-white w-full lg:w-1/3 bg-black p-4 rounded shadow border border-red-500">
+        <div class="text-white w-full bg-black p-4 rounded shadow border border-red-500">
             <h2 class="font-semibold text-red-500 mb-3">Add Vehicle</h2>
 
             <form action="{{ route('vehicles.store') }}" method="POST">
@@ -90,11 +89,12 @@
             </form>
         </div>
 
-        {{-- Vehicles table --}}
-        <div class="w-full bg-black p-4 rounded shadow border border-red-500">
+    </div>
+
+        <div class="mt-5 w-full bg-black p-4 rounded shadow border border-red-500">
             <h2 class="font-semibold text-red-500 mb-3">Vehicles</h2>
 
-            <table class="w-full table-auto border-collapse">
+            <table class="w-full table-auto border-collapse ">
                 <thead>
                     <tr class="bg-black border border-red-500 text-left text-white">
                         <th class="px-3 py-2 border-b border-red-500">ID</th>
@@ -137,10 +137,9 @@
                 </tbody>
             </table>
         </div>
-    </div>
+
 </div>
 
-{{-- Edit Vehicle Modal --}}
 <div id="edit-vehicle-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40">
     <div class="bg-black w-full max-w-lg p-4 rounded border border-red-500">
         <h3 class="font-semibold mb-2 text-red-500">Edit Vehicle</h3>
@@ -191,7 +190,7 @@
 
 @push('scripts')
 <script>
-    // Edit modal open/populate
+    // Edit dri
     document.querySelectorAll('.edit-vehicle-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const modal = document.getElementById('edit-vehicle-modal');
@@ -208,14 +207,14 @@
         });
     });
 
-    // Cancel edit
+    // ini cancel edit
     document.getElementById('edit-cancel').addEventListener('click', () => {
         const modal = document.getElementById('edit-vehicle-modal');
         modal.classList.add('hidden');
         modal.classList.remove('flex');
     });
 
-    // Delete confirmation
+    // confirmation sang delete
     document.querySelectorAll('.delete-btn').forEach(button => {
         button.addEventListener('click', () => {
             if (confirm('Are you sure you want to delete this record?')) {
@@ -224,7 +223,6 @@
         });
     });
 
-    // Close modal clicking the overlay
     document.getElementById('edit-vehicle-modal').addEventListener('click', (e) => {
         if (e.target.id === 'edit-vehicle-modal') {
             e.currentTarget.classList.add('hidden');
