@@ -96,5 +96,8 @@
       };
   </script>
 
+  {{-- STACKED SCRIPTS --}}
+  @stack('scripts')
+
 </body>
 </html>
